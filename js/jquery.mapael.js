@@ -1334,8 +1334,8 @@
             var cssClass = self.$tooltip.attr('class');
             var updateTooltipPosition = function (x, y) {
                 var tooltipPosition = {
-                    "left": Math.min(self.$map.width() - self.$tooltip.outerWidth() - 5, x - self.$map.offset().left + 10),
-                    "top": Math.min(self.$map.height() - self.$tooltip.outerHeight() - 5, y - self.$map.offset().top + 20)
+                    "left" : Math.min(self.$map.offset().left + self.$map.width() - self.$tooltip.outerWidth() - 5, x + 10) - $(window).scrollLeft(),
+                    "top" : Math.min(self.$map.offset().top + self.$map.height() - self.$tooltip.outerHeight() - 5, y + 20) - $(window).scrollTop()
                 };
 
                 if (elem.tooltip.overflow !== undefined) {
